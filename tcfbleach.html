@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>PlanetPulp | TCF & Eco-Friendly Paper</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    body {
+      font-family: 'Inter', serif;
+      margin: 0;
+      padding: 0;
+      background: #e3ffe4;
+      color: #1B5E20;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+            text-align: right;
+            padding: 12px;
+            background-color: #ffffff;
+            font-weight: bold;
+        }
+
+        .navbar a {
+            color: rgb(47, 47, 47);
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            transition: color 0.3s ease-in-out;
+        }
+        .navbar a:hover {
+            color: #39ae41;
+        }
+    
+    .header {
+      background-color: #A5D6A7;
+      color: #224834;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      animation: fadeUp 1s ease-in-out;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      animation: popIn 1.2s ease-in-out;
+    }
+
+    .section {
+      background-color: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .section:hover {
+      transform: scale(1.02);
+    }
+
+    .section h2 {
+      text-align: center;
+      color: #2E7D32;
+      margin-bottom: 20px;
+      font-size: 28px;
+      position: relative;
+    }
+
+    .section h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: #A5D6A7;
+      margin: 10px auto 0;
+      border-radius: 10px;
+    }
+
+    .section p, .section ul {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .section ul {
+      padding-left: 20px;
+    }
+
+    .footer {
+      background-color: #224834;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 60px;
+      animation: fadeUp 1s ease-in-out;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        font-size: 28px;
+        padding: 40px 15px;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .section h2 {
+        font-size: 22px;
+      }
+
+      .container {
+        padding: 0 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="../index.html">Home</a>
+   
+      <a href="../pages/products.html">Products</a>
+     
+   
+      <a href="../pages/sustainability.html">Sustainability</a>
+     
+    <a href="../pages/contactus.html">Contact Us</a>
+  </div>
+
+  <div class="header">TCF Bleaching & 91% Eco-Friendly Paper</div>
+
+  <div class="container">
+    <div class="section">
+      <h2>Total Chlorine-Free (TCF) Bleaching</h2>
+      <p>At PlanetPulp, our commitment to sustainability is embodied in our Total Chlorine-Free (TCF) bleaching process. We use <strong>hydrogen peroxide</strong>, a safe and fully biodegradable agent, instead of chlorine-based chemicals. This innovation ensures <strong>zero chlorine emissions</strong> into air or water, significantly reducing environmental harm and protecting aquatic life.</p>
+    </div>
+
+    <div class="section">
+      <h2>91% Eco-Friendly Paper Production</h2>
+      <p>Through strategic processes and innovation, PlanetPulp produces paper that’s <strong>91% eco-friendly</strong>. Here’s how:</p>
+      <ul>
+        <li><strong>100% recycled fibers</strong>—drastically reducing deforestation.</li>
+        <li><strong>Closed-loop water systems</strong>—saving water and preventing waste discharge.</li>
+        <li><strong>Non-toxic coatings</strong>—enhancing quality while staying biodegradable.</li>
+      </ul>
+      <p>Our ultimate goal is achieving <strong>100% sustainability</strong>, without compromising on quality, usability, or aesthetics.</p>
+    </div>
+  </div>
+
+  <div class="footer">&copy; 2025 PlanetPulp. All Rights Reserved.</div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>PlanetPulp | Bio-Plastic Coating</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    body {
+      font-family: 'Inter', serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #eafaf1, #d0e7d2);
+      color: #1B5E20;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+            text-align: right;
+            padding: 12px;
+            background-color: #ffffff;
+            font-weight: bold;
+        }
+
+        .navbar a {
+            color: rgb(47, 47, 47);
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            transition: color 0.3s ease-in-out;
+        }
+        .navbar a:hover {
+            color: #39ae41;
+        }
+
+    .header {
+      background-color: #d0e7d2;
+      color: #224834;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 42px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      animation: fadeUp 1s ease-in-out;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70vh;
+      text-align: center;
+      animation: popIn 1.2s ease-in-out;
+    }
+
+    .coming-soon {
+      font-size: 52px;
+      color: #2E7D32;
+      font-weight: bold;
+      background: white;
+      padding: 40px 60px;
+      border-radius: 20px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .coming-soon:hover {
+      transform: scale(1.05);
+    }
+
+    .footer {
+      background-color: #224834;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      animation: fadeUp 1s ease-in-out;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .coming-soon {
+        font-size: 32px;
+        padding: 30px;
+      }
+
+      .header {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="../index.html">Home</a>
+   
+      <a href="../pages/products.html">Products</a>
+      
+   
+      <a href="../pages/sustainability.html">Sustainability</a>
+     
+   
+    <a href="../pages/contactus.html">Contact Us</a>
+  </div>
+
+  <div class="header">Bio-Plastic Coating</div>
+
+  <div class="container">
+    <div class="coming-soon">Launching Soon!</div>
+  </div>
+
+  <div class="footer">&copy; 2025 PlanetPulp. All Rights Reserved.</div>
+</body>
+</html>

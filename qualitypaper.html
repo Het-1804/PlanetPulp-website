@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PlanetPulp | Quality Paper</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f3fef5;
+      color: #163a24;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+            text-align: right;
+            padding: 12px;
+            background-color: #ffffff;
+            font-weight: bold;
+        }
+
+        .navbar a {
+            color: rgb(47, 47, 47);
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            transition: color 0.3s ease-in-out;
+        }
+        .navbar a:hover {
+            color: #39ae41;
+        }
+    
+        .header {
+            background-color: #DFF7D8;
+            color: #1B5E20;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 36px;
+            font-weight: bold ;
+            letter-spacing: 1px;
+        }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.07);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 18px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: #2e7d32;
+      margin-bottom: 12px;
+    }
+
+    .card p,
+    .card li {
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .card ul {
+      padding-left: 20px;
+      margin: 10px 0 0 0;
+    }
+
+    .footer {
+      text-align: center;
+      background: #224834;
+      color: white;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 60px;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Optional parallax effect */
+    .parallax-bg {
+      background-image: url("../Images/ubtus.png");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      height: 500px;
+      filter: brightness(0.5);
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../pages/products.html">Products</a>
+    <a href="../pages/sustainability.html">Sustainability</a>
+    <a href="../pages/contactus.html">Contact</a>
+  </div>
+
+  <div class="header">Quality Paper by PlanetPulp</div>
+
+  <div class="parallax-bg"></div>
+
+  <div class="container">
+    <div class="card" style="animation-delay: 0s">
+      <h2>Proven Excellence</h2>
+      <p>We combine precision engineering and sustainable materials to create smooth, durable paper perfect for professional and personal use.</p>
+    </div>
+
+    <div class="card" style="animation-delay: 0.1s">
+      <h2>Why Choose Us?</h2>
+      <p><strong>Print Clarity:</strong> Engineered for high-resolution ink adherence.</p>
+      <p><strong>Texture & Strength:</strong> Fine-grain, tear-resistant structure.</p>
+      <p><strong>Eco-Certified:</strong> Crafted under stringent environmental controls.</p>
+    </div>
+
+    <div class="card" style="animation-delay: 0.2s">
+      <h2>Lab Verified Quality</h2>
+      <ul>
+        <li>High brightness and opacity</li>
+        <li>Archival pH balance</li>
+        <li>Fast-dry absorption for crisp printing</li>
+      </ul>
+    </div>
+
+    <div class="card" style="animation-delay: 0.3s">
+      <h2>Customer Voices</h2>
+      <p><strong>“Smooth and reliable — great for presentations!”</strong><br>– Maya, Educator</p>
+      <p><strong>“Love the sustainable feel and bold print quality.”</strong><br>– Aditya, Print Shop Owner</p>
+    </div>
+  </div>
+
+  <div class="footer">&copy; 2025 PlanetPulp. All Rights Reserved.</div>
+
+</body>
+</html>

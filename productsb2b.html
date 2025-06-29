@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanetPulp - Our Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=ITC+Berthold+Bodoni&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'ITC Benguiat Std', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F1F8E9;
+            color: #1B5E20;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: #224834;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+    
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #224834;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 5px;
+        }
+    
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 15px;
+        }
+    
+        .dropdown-content a:hover {
+            background-color: #0e260e;
+        }
+    
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    
+        .dropdown-arrow {
+            margin-left: 5px;
+            font-size: 14px;
+        }
+
+        .products {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .product-category {
+            margin-bottom: 10px;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .footer {
+            background-color: #224834;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="navbar">
+            <a href="../index.html">Home</a>
+            <div class="dropdown">
+                <a href="../pages/products.html">Products <span class="dropdown-arrow"></span></a>
+                <div class="dropdown-content">
+                    <a href="../pages/productsb2c.html">Shop as Individual</a>
+                    <a href="../pages/productsb2b.html">Shop in Bulk</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="../pages/sustainability.html">Sustainability<span class="dropdown-arrow"></span></a>
+                <div class="dropdown-content">
+                    <a href="../pages/tcfbleach.html">Eco-Friendly TCF bleaching</a>
+                    <a href="../pages/zerowaste.html">Zero-waste production</a>
+                    <a href="../pages/bpcoat.html">Bio-Plastic coatings</a>
+                    <a href="../pages/qualitypaper.html">Quality paper</a>
+                </div>
+            </div>
+            <a href="../pages/contactus.html">Contact Us</a>
+        </div>
+    </div>
+
+    <div class="products">
+        <h1>Our Product Range</h1>
+
+        <div class="products">
+            <div class="product-category" id="b2b">
+                <h2>For Businesses (B2B)</h2>
+                <div class="product-list">
+                    <div class="product">Bulk Printing Paper</div>
+                    <div class="product">Ready-to-cut Paper Rolls</div>
+                    <div class="product">Eco-Friendly Packaging Material</div>
+                </div>
+            </div>
+        </div>
+
+    <div class="footer">
+        <p>&copy; 2025 PlanetPulp. All Rights Reserved.</p>
+    </div>
+
+</body>
+</html>

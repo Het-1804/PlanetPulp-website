@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanetPulp - Paper with Purpose</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E8F5E9;
+            color: #1B5E20;
+        }
+
+        .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* Aligns items to the right */
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #ffffff;
+    z-index: 1000;
+}
+.logo {
+  font-weight: 700;
+  font-size: 22px;
+  justify-content: left;
+  color: #000;
+  margin-right: 100px;
+  flex-shrink: 0; /* Prevents the logo from shrinking */
+}
+.navbar {
+  display: flex;
+  font-weight: bold;
+  justify-content: right;
+  align-items: center;
+  padding: 1px 100px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+        .navbar a {
+            color: rgb(47, 47, 47);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 15px;
+            letter-spacing: 2px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar a:hover {
+            color: #39ae41;
+        }
+        .hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  height: 80vh;
+  margin-top: 60px;
+  background-size: cover;
+  background-position: 86% center;
+  background-attachment: fixed;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("../Images/ubtus.png");
+  background-size: cover;
+  background-position: 86% center;
+  background-attachment: fixed;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 50% black overlay */
+  z-index: -1;
+}
+/* Parallax effect when scrolling */
+.parallax {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+}
+
+/* Crumbling effect when leaving */
+.crumble-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9999;
+    animation: crumble 0.8s forwards ease-in;
+    transform-origin: center;
+}
+
+/* Reverse crumbling effect when entering */
+.crumble-reverse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9999;
+    animation: crumble-reverse 0.8s forwards ease-out;
+    transform-origin: center;
+}
+
+@keyframes crumble {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+@keyframes crumble-reverse {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+        .hero-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero-content h1 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 85px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 100px;
+            margin-top: -10px;
+        }
+
+        .hero-content h2 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 25.75px;
+            font-weight: normal;
+            color: #ffffff;
+            margin-bottom: 265px;
+            margin-top: -100px;
+        }
+        .hero-content h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .card-container {
+    display: flex;
+    flex-direction: column; /* Stacks the cards vertically */
+    justify-content: flex-start; /* Aligns the cards to the left */
+    gap: 20px; /* Space between cards */
+    margin: 20px 0;
+    padding-left: 10px; /* Adjusts left padding to control positioning */
+}
+.card {
+    background-color: #224834;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    width: 250px;
+    text-decoration: none;
+}
+.card:hover {
+    transform: scale(1.1); /* Enlarges card on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds hover shadow */
+}
+.btn-container {
+    display: flex;
+    justify-content: center; /* Centers button horizontally */
+    align-items: center; /* Centers vertically if needed */
+    margin-top: 20px; /* Adjust spacing from other elements */
+}
+
+.btn {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    background-color: #224834;
+    color: white;
+}
+
+.btn-view-products {
+  background-color: #ffffff;           
+  color: rgb(0, 0, 0);                        
+  font-weight: 500;               
+  text-transform: uppercase;           
+  font-size: 15px;                     
+  border: none;
+  border-radius: 10px;                
+  text-decoration: none;             
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  letter-spacing: 0.5px;               
+}
+
+.btn-view-products:hover {
+  background-color: #8d8b8b;           /* Darker green on hover */
+}
+
+        .btn:hover {
+            background-color: #ffffff;
+        }
+
+        .benefits {
+            text-align: center;
+            padding: 50px;
+            background-color: #DFF7D8;
+        }
+        .faq-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.faq-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 0.8rem 0;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+  color: #2a7a5f;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.4s ease;
+  opacity: 0;
+  font-size: 0.95rem;
+  color: #444;
+  padding-left: 1rem;
+  margin-top: 0.3rem;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.faq-item.active .arrow {
+  transform: rotate(90deg);
+}
+
+   /* Base Footer Styling */
+.footer {
+  background-color: #111e17;
+  color: #d1e7dd;
+  padding: 50px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section h2, .footer-section h3 {
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer-section p, .footer-section a {
+  color: #d1e7dd;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #80cbc4;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 8px 0;
+}
+
+/* Branding */
+.footer-section.branding h2 {
+  font-size: 22px;
+  color: #a5d6a7;
+  letter-spacing: 1px;
+}
+
+/* Social Icons */
+.icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.icons a {
+  font-size: 18px;
+  color: #d1e7dd;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icons a:hover {
+  color: #81c784;
+  transform: scale(1.15);
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  text-align: center;
+  padding: 15px 0 0;
+  font-size: 14px;
+  border-top: 1px solid #2e3c32;
+  margin-top: 40px;
+  color: #9e9e9e;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer {
+    text-align: center;
+  }
+  .icons {
+    justify-content: center;
+  }
+}
+
+.product-preview {
+  background-color: #f5fdf7;
+  padding: 80px 60px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #1e4d2b;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 36px;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.product-preview {
+  background-color: #f5fdf7;
+  padding: 80px 60px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #1e4d2b;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 36px;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+.product-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  font-size: 20px;
+  margin: 10px 0 6px;
+  color: #174d2c;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 16px;
+  color: #1b5e20;
+  margin-bottom: 10px;
+}
+
+.buy-btn {
+  padding: 10px 16px;
+  background-color: #1e4d2b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 14px;
+}
+
+.buy-btn:hover {
+  background-color: #145a32;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+.more-products-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.more-products-btn {
+  background-color: #1b5e20;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.more-products-btn:hover {
+  background-color: #2e7d32;
+  transform: scale(1.05);
+}
+
+    </style>
+</head>
+<body>
+</style>
+</head>
+<body>
+    
+    <style>
+.benefits-container {
+    background-color: #e6f7e6;
+    padding: 60px 80px;
+    max-width: 900px;
+    margin: 50px auto;
+    border-radius: 10px;
+    font-family: sans-serif;
+}
+
+/* Justify only paragraph text */
+.benefits-container p {
+    text-align: justify;
+}
+
+.benefits h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #114b25;
+    margin-bottom: 10px;
+    text-align: left; /* Ensures heading is left-aligned */
+}
+
+.benefits .tagline {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4b644f;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.benefits p {
+    font-size: 16px;
+    color: #1a3728;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: flex-start; /* Aligns buttons to the left */
+}
+
+.action-button {
+    width: 160px;
+    height: 40px;
+    background: linear-gradient(145deg, #2e6148, #1b402f);
+    color: white;
+    font-size: 12px;
+    font-weight: bolder;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transform: scale(1);
+}
+
+/* Hover animation */
+.action-button:hover {
+    background: linear-gradient(145deg, #0b3c25, #23593d);
+    box-shadow: 6px 6px 16px rgba(0,0,0,0.25);
+    transform: scale(1.05); /* Slight zoom effect */
+}
+    </style>
+    <div class="header">
+        <div class="logo">PLANETPULP</div>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+          
+                <a href="pages/products.html">Products <span class="dropdown-arrow"></span></a>
+               
+
+           
+                <a href="pages/sustainability.html">Sustainability<span class="dropdown-arrow"></span></a>
+               
+          
+            <a href="pages/contactus.html">Contact Us</a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Apply reverse crumbling when the page loads
+            let reverseEffect = document.createElement("div");
+            reverseEffect.classList.add("crumble-reverse");
+            document.body.appendChild(reverseEffect);
+            
+            setTimeout(() => {
+                reverseEffect.remove();
+            }, 800); // Duration matches the animation time
+        });
+    
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function (e) {
+                e.preventDefault();
+                let href = this.href;
+    
+                // Apply the crumbling effect when leaving
+                let crumbleEffect = document.createElement("div");
+                crumbleEffect.classList.add("crumble-effect");
+                document.body.appendChild(crumbleEffect);
+    
+                setTimeout(() => { window.location.href = href; }, 800);
+            });
+        });
+    </script>     
+    <!-- Your existing HTML content -->
+
+<script>
+    // Your operational JS here
+    document.querySelectorAll('.action-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            btn.style.transform = 'scale(0.97)';
+            setTimeout(() => btn.style.transform = 'scale(1.05)', 100);
+        });
+    });
+</script>
+
+  
+<div class="hero" id="home">
+    <div class="hero-content">
+        <h1>PLANET PULP</h1>
+        <h2 id="tagline"></h2>       
+        
+        <!-- Button Container for Center Alignment -->
+        <div class="btn-view-products">
+            <button class="btn btn-view-products" onclick="location.href='pages/products.html'">View Products</button>
+        </div>
+    </div>
+</div>
+<div class="benefits-container">
+    <div class="benefits">
+        <h2 data-aos="fade-up">Why Choose PlanetPulp?</h2>
+        <p data-aos="fade-up" class="tagline">Gujarat's first 91% eco-friendly Paper Production and Solutions brand.</p>
+        <p data-aos="fade-up"> At PlanetPulp, we are redefining sustainability through innovation in paper production.Our mission is to create an eco-conscious alternative to conventional paper by utilizing recycled materials and ensuring a zero-waste manufacturing process. Unlike traditional methods that rely on harsh chemicals, we employ hydrogen peroxide as a bleaching agent, a significantly cleaner and more environmentally responsible choice.</p>
+        <p data-aos="fade-up">Every byproduct generated in our process is repurposed—wastewater and organic residues are transformed into nutrient-rich vermicompost, reinforcing our commitment to a circular economy.</p>
+        <p data-aos="fade-up">We don’t just produce paper; we craft a future where sustainability and efficiency go hand in hand. At PlanetPulp, we envision a world where paper production nurtures the planet rather than depletes it—where every sheet tells a story of responsibility, resilience, and renewal.</p>
+
+        <div class="buttons-container" data-aos="fade-in">
+            <button class="action-button" onclick="window.open('../pages/mission.html', '_blank')">Mission</button>
+            <button class="action-button" onclick="window.open('../pages/sustainability.html', '_blank')">Sustainability</button>
+            <button class="action-button" onclick="location.href='../pages/team.html'">The Team</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+
+            if (faqItem.classList.contains('active')) {
+                // Collapse answer
+                answer.style.maxHeight = "0px";
+                faqItem.classList.remove('active');
+            } else {
+                // Expand answer
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                faqItem.classList.add('active');
+            }
+        });
+    });
+</script>  
+    <script>
+        gsap.from(".hero-content h1", { opacity: 0, y: -20, duration: 1 });
+        gsap.from(".hero-content h2", { opacity: 0, y: 20, duration: 1, delay: 0.5 });
+        gsap.from("ul li", { opacity: 0, x: -20, duration: 1, stagger: 0.3, delay: 1 });
+
+        let taglineText = "Paper with Purpose - 99% Green, 100% Impact";
+        let taglineElement = document.getElementById("tagline");
+        let index = 0;
+        
+        function typeWriter() {
+            if (index < taglineText.length) {
+                taglineElement.textContent += taglineText.charAt(index);
+                index++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        
+        setTimeout(typeWriter, 500);
+    </script>
+       <section class="product-preview" id="products">
+        <h2 data-aos="fade-up" class="section-title">Our Products</h2>
+        <div data-aos="fade-up" class="product-grid">
+          
+          <div class="product-card">
+            <img src="images/abtus.jpeg" alt="Eco-Friendly Papers">
+            <h3>Paper Packs with different sizes.</h3>
+            <p>Textured recycle paper, perfect for students and professionals alike.</p>
+            <span class="price">Launching soon*</span>
+          </div>
+      
+          <div class="product-card">
+            <img src="images/t2.jpeg" alt="Recycled Paper Packs">
+            <h3>Origami Craft Boxes.</h3>
+            <p>For creative enthusiasts and students of adults, coloured textured Origami Kits.</p>
+            <span class="price">Launching soon*</span>
+          </div>
+      
+          <div class="product-card">
+            <img src="images/vc.jpg" alt="Recycled Paper Packs">
+            <h3>Vermi-compost Fertilizers</h3>
+            <p>Best Quality High fertility Farm fertilizer, 100% organic.</p>
+            <span class="price">Launching soon*</span>
+          </div>
+      
+        </div>
+        <div data-aos="fade-up" class="more-products-container">
+            <a href="../pages/products.html" class="more-products-btn">Explore All Products</a>
+          </div>          
+      </section>  
+               
+      <section class="faq-section">
+        <h2 data-aos="fade-up">Frequently Asked Questions</h2>
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question">
+              What is Planet Pulp?
+              <span class="arrow">&#9656;</span>
+            </button>
+            <div class="faq-answer">
+              Planet Pulp is a sustainable paper production company that focuses on zero-waste, eco-friendly manufacturing.
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              What makes your paper different from traditional paper?
+              <span class="arrow">&#9656;</span>
+            </button>
+            <div class="faq-answer">
+              Our paper is crafted from recycled materials using low-impact bleaching and minimal water and energy usage.
+            </div>
+          </div>
+      
+          <div class="faq-item">
+            <button class="faq-question">
+              How is your paper 91% eco-friendly?
+              <span class="arrow">&#9656;</span>
+            </button>
+            <div class="faq-answer">
+              We use hydrogen peroxide as a non-toxic bleaching agent, and recycle all by-products into compost or reuse systems.
+            </div>
+          </div>
+      
+          <div class="faq-item">
+            <button class="faq-question">
+              Is your packaging also eco-friendly?
+              <span class="arrow">&#9656;</span>
+            </button>
+            <div class="faq-answer">
+              Absolutely. We use only biodegradable or fully recyclable packaging materials in all our shipments.
+            </div>
+          </div>
+      
+          <div class="faq-item">
+            <button class="faq-question">
+              Do you accept bulk or B2B orders?
+              <span class="arrow">&#9656;</span>
+            </button>
+            <div class="faq-answer">
+              Yes, we collaborate with businesses for bulk orders and sustainable packaging solutions. Contact us to start.
+            </div>
+          </div>
+      
+          <div class="faq-item">
+            <button class="faq-question">
+              What products do you offer?
+              <span class="arrow">&#9656;</span>
+            </button>
+            <div class="faq-answer">
+              We provide notebooks, office paper, packaging solutions, and custom paper formats tailored to eco-conscious needs.
+            </div>
+          </div>
+      
+          <div class="faq-item">
+            <button class="faq-question">
+              How can I reach customer support?
+              <span class="arrow">&#9656;</span>
+            </button>
+            <div class="faq-answer">
+              Our team is available via email, phone, or the Contact Us form on our website.
+            </div>
+          </div>
+        </div>
+      </section>       
+        <footer class="footer">
+            <div class="footer-container">
+              <!-- Branding -->
+              <div class="footer-section branding">
+                <h2>Planet Pulp</h2>
+                <p>Paper with Purpose – 99% Green, 100% Impact</p>
+              </div>
+          
+              <!-- Navigation -->
+              <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                  <li><a href="../index.html">Home</a></li>
+                  <li><a href="../pages/products.html">Products</a></li>
+                  <li><a href="../pages/sustainability.html">Sustainability</a></li>
+                  <li><a href="../pages/contactus.html">Contact Us</a></li>
+                  <li><a href="#faq">FAQs</a></li>
+                </ul>
+              </div>
+          
+              <!-- Contact -->
+              <div class="footer-section contact">
+                <h3>Contact</h3>
+                <p><a href="mailto:planetpulp360@gmail.com">planetpulp360@gmail.com</a></p>
+                <p><a href="tel:+919558191264">+91 95581 91264</a></p>
+              </div>
+          
+             <!-- Social -->
+<div class="footer-section social">
+    <h3>Connect</h3>
+    <div class="icons">
+      <a href="https://instagram.com/planetpulp_" target="_blank" aria-label="Instagram">
+        <img src="../Images/instaa.png" alt="Instagram" width="45" height="45">
+      </a>
+      <a href="https://linkedin.com/company/planetpulp" target="_blank" aria-label="LinkedIn">
+        <img src="../Images/ldin.png" alt="Instagram" width="45" height="45">
+      </a>
+    </div>
+  </div>
+  
+          
+            <div class="footer-bottom">
+              <p>&copy; 2025 PlanetPulp. All Rights Reserved.</p>
+            </div>
+          </footer>
+          <script>
+            document.querySelectorAll('.faq-question').forEach(button => {
+              button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+              });
+            });
+          </script>  
+        <!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,  // animation duration
+    easing: 'ease-in-out', 
+    once: true       // only animate once
+  });
+</script>   
+</body>
+</html>
